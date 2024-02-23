@@ -5,16 +5,25 @@ class Movie {
 public $title;
 public $director;
 public $actor;
+public $year;
 public $plot;
+
+// Aggiunto costruttore
+public function __construct($title, $director, $actor, $year, $plot)
+{
+    $this->title = $title;
+    $this->director = $director;
+    $this->actor = $actor;
+    $this->year = $year;
+    $this->plot = $plot;
+}
+
 
 }
 
 
-$movie1 = new Movie();
-$movie1->title = 'Avatar';
-$movie1->director = 'James Cameron';
-$movie1->actor = 'Zoe Saldana';
-$movie1->plot = 'Umani vanno su Pandora';
+$movie1 = new Movie('Avatar', 'James Cameron', 'Zoe Saldana', 2009, 'Umani vanno su Pandora');
+
 
 var_dump($movie1);
 
