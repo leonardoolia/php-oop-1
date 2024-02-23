@@ -10,7 +10,7 @@ class Movie
     public $plot;
 
 // Aggiunto costruttore
-    public function __construct($title, Director $director, $actor, $year, $plot)
+    public function __construct($title, Director $director, Actor $actor, $year, $plot)
     {
         $this->title = $title   ;
         $this->director = $director;
@@ -22,7 +22,7 @@ class Movie
 // Funzione per avere le informazioni sul film
     public function getMovieInfo()
     {
-        return "Titolo:{$this->title} Regista: {$this->toString()} Attore principale: {$this->actor} Uscita: {$this->year} Trama: {$this->plot}";
+        return "Titolo:{$this->title} Regista: {$this->director->toString()} Attori principali: {$this->actor->toString()} Uscita: {$this->year} Trama: {$this->plot}";
     }
 
 }
@@ -45,12 +45,33 @@ class Director
     }
 }
 
+
+// ?Dichiarazione classe Actor
+class Actor
+{
+    public $name;
+
+    public function __construct($name)
+    {
+        $this->name = $name;
+    }
+
+    public function toString()
+    {
+        return $actor = implode(',', $this->name);
+    }
+}
+
+
 // Oggetti che vengono istanziati
+$actors1 = new Actor(['Sam Worthington', 'Zoe Saldana', 'Sigourney Weaver']);
+$actors2 = new Actor(['Matthew McConaughey','Anne Hathaway', 'Jessica Chastain']);
+
 $director1 = new Director('James Cameron', 60);
 $director2 = new Director('Christopher Nolan', 50);
 
-$movie1 = new Movie('Avatar', $director1, 'Sam Worthington', 2009, 'Umani vanno su Pandora');
-$movie2 = new Movie('Interstellar', $director2, 'Matthew McConaughey', 2014, 'Un gruppo di astronauti cercano nuovi pianeti abitabili');
+$movie1 = new Movie('Avatar', $director1, $actors1, 2009, 'Umani vanno su Pandora');
+$movie2 = new Movie('Interstellar', $director2, $actors2, 2014, 'Un gruppo di astronauti cercano nuovi pianeti abitabili');
 
 
 // Stampa delle informazioni in pagina
