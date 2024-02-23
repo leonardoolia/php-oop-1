@@ -1,4 +1,24 @@
-<?php 
+<?php
+
+// Dichiarazione classe Movie
+class Movie {
+public $title;
+public $director;
+public $actor;
+public $plot;
+
+}
+
+
+$movie1 = new Movie();
+$movie1->title = 'Avatar';
+$movie1->director = 'James Cameron';
+$movie1->actor = 'Zoe Saldana';
+$movie1->plot = 'Umani vanno su Pandora';
+
+var_dump($movie1);
+
+
 
 ?>
 
@@ -10,6 +30,6 @@
     <title>OOP Movie</title>
 </head>
 <body>
-    
+
 </body>
 </html>
