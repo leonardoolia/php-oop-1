@@ -18,14 +18,20 @@ public function __construct($title, $director, $actor, $year, $plot)
     $this->plot = $plot;
 }
 
+// Funzione per avere le informazioni sul film
+public function getMovieInfo()
+{
+    return "Titolo:{$this->title} Regista: {$this->director} Attore principale: {$this->actor} Uscita: {$this->year} Trama: {$this->plot}";
+}
 
 }
 
+$movie1 = new Movie('Avatar', 'James Cameron', 'Sam Worthington', 2009, 'Umani vanno su Pandora');
+$movie2 = new Movie('Interstellar', 'Christopher Nolan', 'Matthew McConaughey', 2014, 'Un gruppo di astronauti cercano nuovi pianeti abitabili');
 
-$movie1 = new Movie('Avatar', 'James Cameron', 'Zoe Saldana', 2009, 'Umani vanno su Pandora');
-
-
-var_dump($movie1);
+// Stampa delle informazioni in pagina
+echo $movie1->getMovieInfo();
+echo $movie2->getMovieInfo();
 
 
 
