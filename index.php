@@ -41,7 +41,7 @@ class Director
 
     public function toString()
     {
-        return "nome: {$this->name} età: {$this->age}";
+        return "{$this->name} ({$this->age} anni)";
     }
 }
 
@@ -75,21 +75,41 @@ $movie2 = new Movie('Interstellar', $director2, $actors2, 2014, 'Un gruppo di as
 
 
 // Stampa delle informazioni in pagina
-echo $movie1->getMovieInfo();
-echo $movie2->getMovieInfo();
+// echo $movie1->getMovieInfo();
+// echo $movie2->getMovieInfo();
 
-
+// Array contenente gli oggetti Movie
+$movies = [$movie1, $movie2];
 
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OOP Movie</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
 </head>
 <body>
-
+    <main class="container">
+        <div class="container">
+            <h1>Lista film</h1>
+            <ul>
+                <?php foreach($movies as $movie): ?>
+                <li>
+                    <h2><?= $movie->title ?> (<?= $movie->year?>)</h2>
+                    <h4>Direttore: <?= $movie->director->toString()?></h4>
+                    <p>Cast: <?= $movie->actor->toString() ?></p>
+                    <p>Trama: <?= $movie->plot ?></p>
+                </li>
+                <?php endforeach ;?>
+            </ul>
+        </div>
+    </main>
 </body>
 </html>
